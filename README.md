@@ -7,5 +7,5 @@ The goal of this webpage is for users to save important events to a daily planne
 https://xuannga.github.io/Work-Day-Scheduler/
 
 ## Sample Screen Shot
-![ScreenShot](/images/screenshot.jpg)
+![ScreenShot](images/screenshot.jpg)
 
