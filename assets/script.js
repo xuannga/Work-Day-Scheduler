@@ -18,11 +18,11 @@ $(document).ready(function () {
         //get current number of hours.
         var currentTime = moment().hour();
 
-        // loop over time blocks
+        // loop over timeblocks
         $(".timeBlocks").each(function () {
             var block = parseInt($(this).attr("id").split("hour")[1]);
 
-            // To check the time and add the classes for background indicators
+           
             if (block < currentTime) {
                 $(this).removeClass("future");
                 $(this).removeClass("present");
