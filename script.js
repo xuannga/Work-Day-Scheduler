@@ -1,28 +1,33 @@
 // Display today's day and date
-var todayDate = moment().format('dddd, MMM Do YYYY');
+var todayDate = moment().format('MMMM Do YYYY');
 $("#currentDay").html(todayDate);
 
+
 $(document).ready(function () {
+    // saveBtn click listener 
     $(".saveBtn").on("click", function () {
-        //retrieve values from "information"
+        // Get nearby values of the description in JQuery
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
-        //save value in local storate
+
+        // Save text in local storage
         localStorage.setItem(time, text);
     })
-
+   
     function track() {
-        //get current time.
-        var currentTime = moment();
-        // loop over timeblocks
+        //get current number of hours.
+        var currentTime = moment().hour();
+
+        // loop over time blocks
         $(".timeBlocks").each(function () {
-            var block = parseInt($(this).attr("id").split(".hour")[1]);
-            
+            var block = parseInt($(this).attr("id").split("hour")[1]);
+
+            // To check the time and add the classes for background indicators
             if (block < currentTime) {
                 $(this).removeClass("future");
                 $(this).removeClass("present");
                 $(this).addClass("past");
-            } 
+            }
             else if (block === currentTime) {
                 $(this).removeClass("past");
                 $(this).removeClass("future");
@@ -36,7 +41,6 @@ $(document).ready(function () {
             }
         })
     }
-
     //retrieve items from local storage
     $("#8am .description").val(localStorage.getItem("8am"));
     $("#9am .description").val(localStorage.getItem("9am"));

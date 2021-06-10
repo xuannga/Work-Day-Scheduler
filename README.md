@@ -1,1 +1,10 @@
 # Work-Day-Scheduler
+
+#link to live page
+https://xuannga.github.io/Work-Day-Scheduler/
+
+Description
+The goal of this webpage is for users to save important events to a daily planner, so they manage their time effectively
+
+![](screenshot.jpg)
+
