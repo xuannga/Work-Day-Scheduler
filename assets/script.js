@@ -3,9 +3,9 @@ var todayDate = moment().format('MMMM Do YYYY');
 $("#currentDay").html(todayDate);
 
 
-$(document).ready(function () {
+$(document).ready(function() {
     // saveBtn click listener 
-    $(".saveBtn").on("click", function () {
+    $(".saveBtn").on("click", function() {
         // Get nearby values of the description in JQuery
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
@@ -13,27 +13,26 @@ $(document).ready(function () {
         // Save text in local storage
         localStorage.setItem(time, text);
     })
-   
+
     function track() {
-        //get current number of hours.
-        var currentTime = moment().hour();
-
+        //get current am/pm.
+        var currentTime = moment().format('H');
+        console.log(currentTime);
         // loop over timeblocks
-        $(".timeBlocks").each(function () {
-            var block = parseInt($(this).attr("id").split("hour")[1]);
+        $(".timeBlocks").each(function() {
 
-           
+            var block = parseInt($(this).attr("id").split(("hour")[0]));
+            console.log(block);
+
             if (block < currentTime) {
                 $(this).removeClass("future");
                 $(this).removeClass("present");
                 $(this).addClass("past");
-            }
-            else if (block === currentTime) {
+            } else if (block == currentTime) {
                 $(this).removeClass("past");
                 $(this).removeClass("future");
                 $(this).addClass("present");
-            }
-            else {
+            } else {
                 $(this).removeClass("present");
                 $(this).removeClass("past");
                 $(this).addClass("future");
@@ -54,5 +53,5 @@ $(document).ready(function () {
     $("#5pm .description").val(localStorage.getItem("5pm"));
 
     track();
-    
+
 })
